@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfga2xqbwbc2l" path="res://ui/texture/XboxB.svg" id="5_knd5j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_udj6s"]
-font_size = 18
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 
@@ -39,8 +39,6 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -176.0
-offset_right = 244.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
