@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/MainMenu.cs" id="2_ak6c4"]
 [ext_resource type="Texture2D" uid="uid://dygugnedtbi8o" path="res://ui/texture/bg1.png" id="2_cmspw"]
 [ext_resource type="Texture2D" uid="uid://dg4oevyc04068" path="res://ui/texture/play.svg" id="2_o6jk1"]
-[ext_resource type="Texture2D" uid="uid://dyc1pw423dhop" path="res://ui/texture/Xbox_B.svg" id="5_m2246"]
+[ext_resource type="Texture2D" uid="uid://cfga2xqbwbc2l" path="res://ui/texture/XboxB.svg" id="5_knd5j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_udj6s"]
 font_size = 18
@@ -39,8 +39,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -78.0
-offset_right = 105.0
+offset_top = -176.0
+offset_right = 244.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
@@ -74,7 +74,7 @@ alignment = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_m2246")
+texture = ExtResource("5_knd5j")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
