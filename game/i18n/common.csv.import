@@ -6,10 +6,10 @@ uid="uid://bf8qeqnt6c47u"
 
 [deps]
 
-files=["res://i18n/common.en.translation", "res://i18n/common.zh_CN.translation", "res://i18n/common.jp.translation"]
+files=["res://i18n/common.en.translation", "res://i18n/common.zh_CN.translation", "res://i18n/common.jp.translation", "res://i18n/common.epo.translation"]
 
 source_file="res://i18n/common.csv"
-dest_files=["res://i18n/common.en.translation", "res://i18n/common.zh_CN.translation", "res://i18n/common.jp.translation"]
+dest_files=["res://i18n/common.en.translation", "res://i18n/common.zh_CN.translation", "res://i18n/common.jp.translation", "res://i18n/common.epo.translation"]
 
 [params]
 
