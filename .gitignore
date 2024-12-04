@@ -1,0 +1,35 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# vscode specific ignores
+.vscode/
+
+# Jetbrains specific ignores
+.idea/
+*.DotSettings.user
+
+# Ignore libraryfiles 
+gdextension/bin/*
+
+# Ignore Binaryies
+*.o
+*.os
+*.so
+*.obj
+*.bc
+*.pyc
+*.dblite
+*.pdb
+*.lib
+*.config
+*.creator
+*.creator.user
+*.files
+*.includes
+*.idb
+*.exp
+*.dll
+
+# Ignore generated files
+*.gen.*

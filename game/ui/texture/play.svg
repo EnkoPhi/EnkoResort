@@ -1,0 +1,13 @@
+<svg width="40" height="40">
+    <defs>
+        <!-- <clipPath id="cut-circle" clip-rule="nonzero">
+            <circle cx="14.5" cy="20" r="8" />
+        </clipPath> -->
+        <!-- <clipPath id="clip" clip-rule="evenodd">
+            <path d="M4 36L4 4L31 20Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </clipPath> -->
+    </defs>
+    <path d="M6 34L6 6L30 20Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>
