@@ -7,5 +7,7 @@
     <Company>EnkoPhi</Company>
     <NeutralLanguage>zh</NeutralLanguage>
     <PublicSign>false</PublicSign>
+    <RootNamespace />
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 </Project>
