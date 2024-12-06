@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb4fdyvx5fdjb"]
+[gd_scene load_steps=3 format=3 uid="uid://bb4fdyvx5fdjb"]
 
+[ext_resource type="Script" path="res://script/UIManager.cs" id="1_4wbq0"]
 [ext_resource type="PackedScene" uid="uid://dfe85nrdlf7h8" path="res://ui/main_menu.tscn" id="1_tnmk5"]
 
 [node name="Launcher" type="Node3D"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4wbq0")
 
 [node name="MainMenu" parent="Control" instance=ExtResource("1_tnmk5")]
 layout_mode = 1

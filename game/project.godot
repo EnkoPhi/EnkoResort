@@ -25,6 +25,10 @@ project/assembly_name="Resort"
 scene={
 "import_script/path": "res://addons/EnkoWindowMap/EnkoWindowPostImport.cs"
 }
+csv_translation={
+"compress": true,
+"delimiter": 0
+}
 
 [input]
 

@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc32uo3sep8gn"]
+
+[ext_resource type="Theme" uid="uid://d2yj3aif74l1c" path="res://ui/main_menu.tres" id="1_4vfpj"]
+[ext_resource type="Script" path="res://script/QuitConfirm.cs" id="2_lj5ld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0q0b"]
+bg_color = Color(0.77, 0.194553, 0.1848, 0.913725)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.768627, 0.196078, 0.184314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="quit_confirm" type="Control" node_paths=PackedStringArray("confirmButton", "cancelButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4vfpj")
+script = ExtResource("2_lj5ld")
+confirmButton = NodePath("Panel/ConfirmBtn")
+cancelButton = NodePath("Panel/CancelBtn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 187.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "QUIT_CONFIRM_TITLE"
+
+[node name="Content" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -11.5
+offset_right = 83.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT_CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CancelBtn" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -52.0
+offset_right = 196.0
+offset_bottom = -12.0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../ConfirmBtn")
+focus_neighbor_right = NodePath("../ConfirmBtn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_v0q0b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0q0b")
+text = "CANCEL"
+
+[node name="ConfirmBtn" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -52.0
+offset_right = -64.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../CancelBtn")
+focus_neighbor_right = NodePath("../CancelBtn")
+text = "CONFIRM"

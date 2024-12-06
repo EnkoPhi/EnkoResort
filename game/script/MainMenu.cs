@@ -1,7 +1,7 @@
+using core.view;
 using Godot;
 
-namespace Resort.script;
-
+[UIResBind("res://ui/main_menu.tscn")]
 public partial class MainMenu : Control
 {
     [Export] public BaseButton newGameButton;
@@ -15,13 +15,14 @@ public partial class MainMenu : Control
         newGameButton.Pressed += OnNewGameBtn;
         settingsButton.Pressed += OnSettingsBtn;
         quitButton.Pressed += OnQuitBtn;
-        // Input.JoyConnectionChanged += OnJoyStickChanged;
-        // GD.PrintT(Input.GetConnectedJoypads());
-        // GD.Print(Input.GetJoyInfo(0));
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
+        if (Input.IsActionPressed("ui_cancel"))
+        {
+            OnQuitBtn();
+        }
     }
 
     private void OnJoyStickChanged(long device, bool connected)
@@ -49,10 +50,10 @@ public partial class MainMenu : Control
         GD.Print("Settings");
     }
 
-    private void OnQuitBtn()
+    private async void OnQuitBtn()
     {
         GD.Print("QuitGame");
-        GetTree().Quit();
+        _ = await UIManager.Instance.OpenView<QuitConfirm>();
     }
 
 

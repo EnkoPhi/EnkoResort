@@ -13,7 +13,7 @@ public class ResLoader
     // Singleton instance
     private static ResLoader? _instance;
     private static readonly object Lock = new();
-    
+
     // Tracks currently loading resources and their completion sources
     private readonly Dictionary<string, TaskCompletionSource<Resource>?> _loadingDict = new();
 
@@ -29,6 +29,7 @@ public class ResLoader
             {
                 _instance ??= new ResLoader();
             }
+
             return _instance;
         }
     }
@@ -40,14 +41,15 @@ public class ResLoader
     {
         _loadingDict.Clear();
     }
-    
+
     /// <summary>
     /// Waits for a resource to finish loading and returns it when complete
     /// </summary>
     /// <param name="path">Resource path</param>
     /// <param name="tcs">TaskCompletionSource tracking the load</param>
     /// <returns>Loaded resource of type T, or null if loading failed</returns>
-    private async Task<T?> WaitForResource<T>(string path, TaskCompletionSource<Resource>? tcs = null) where T : Resource
+    private async Task<T?> WaitForResource<T>(string path, TaskCompletionSource<Resource>? tcs = null)
+        where T : Resource
     {
         // Early exit if no valid TaskCompletionSource
         if (tcs == null && !_loadingDict.TryGetValue(path, out tcs)) return null;
@@ -55,10 +57,10 @@ public class ResLoader
 
         var resource = await tcs.Task;
         _loadingDict.Remove(path);
-        
+
         return resource is T result ? result : null;
     }
-    
+
     /// <summary>
     /// Checks the loading status of all pending resources. 
     /// TODO: Find a way to be called from main thread each frame.
@@ -85,7 +87,7 @@ public class ResLoader
             }
         }
     }
-    
+
     /// <summary>
     /// Asynchronously loads a resource of type T
     /// </summary>
@@ -104,23 +106,24 @@ public class ResLoader
                 var tcs = new TaskCompletionSource<Resource>(cancellationToken);
                 _loadingDict.TryAdd(path, tcs);
                 return await WaitForResource<T>(path, tcs);
-                
+
             case ResourceLoader.ThreadLoadStatus.InProgress:
-                var tcsInProgress = _loadingDict.TryGetValue(path, out var existing) 
-                    ? existing 
+                var tcsInProgress = _loadingDict.TryGetValue(path, out var existing)
+                    ? existing
                     : new TaskCompletionSource<Resource>(cancellationToken);
-                
+
                 if (tcsInProgress == null) return null;
                 if (!_loadingDict.ContainsKey(path))
                 {
                     _loadingDict.TryAdd(path, tcsInProgress);
                 }
+
                 return await WaitForResource<T>(path, tcsInProgress);
-                
+
             case ResourceLoader.ThreadLoadStatus.Failed:
                 GD.PrintErr($"Failed to load resource: {path}");
                 return null;
-                
+
             case ResourceLoader.ThreadLoadStatus.Loaded:
                 var resource = ResourceLoader.LoadThreadedGet(path);
                 return resource is T result ? result : null;

@@ -3,4 +3,7 @@ NEW_GAME,New Game,新游戏,新しいゲーム,Novaj Ludo
 SETTINGS,Settings,设置,設定,Aranĝo 
 QUIT,Quit,退出,終了,Eliri 
 CONFIRM,Confirm,确认,確認,Konfirmi
+CANCEL,Cancel,取消,キャンセル,Nuligi
 RESORT,Resort,度假村,リゾート,Feriejo
+QUIT_CONFIRM_TITLE,Quit,退出,終了,Eliri 
+QUIT_CONFIRM,Sure you want to quit?,确定要退出吗？,終了しますか？,Ĉu vi certas ke vi volas eliri?
