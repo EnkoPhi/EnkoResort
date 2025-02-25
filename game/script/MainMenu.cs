@@ -8,7 +8,6 @@ public partial class MainMenu : Control
     [Export] public BaseButton settingsButton;
     [Export] public BaseButton quitButton;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         newGameButton.GrabFocus();
@@ -53,7 +52,7 @@ public partial class MainMenu : Control
     private async void OnQuitBtn()
     {
         GD.Print("QuitGame");
-        _ = await UIManager.Instance.OpenView<QuitConfirm>();
+        _ = await UIManager.Instance?.OpenView<QuitConfirm>()!;
     }
 
 

@@ -1,11 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using core.res;
 using core.view;
 using Godot;
 
 public partial class UIManager : Control
 {
-    public static UIManager Instance { get; private set; }
+    public static UIManager? Instance { get; private set; }
+    private readonly Godot.Collections.Dictionary<string, ViewBase> _openedViews = new();
 
     public override void _EnterTree()
     {
@@ -22,6 +24,20 @@ public partial class UIManager : Control
     public override void _Process(double delta)
     {
         ResLoader.Instance.CheckResourceLoading();
+    }
+
+    public bool CloseView(ViewBase? view)
+    {
+        if (view == null)
+        {
+            return false;
+        }
+
+        var fullName = view.GetType().FullName;
+        if (fullName != null) _openedViews.Remove(fullName);
+        view.OnClose();
+        view.QueueFree();
+        return true;
     }
 
     public async Task<T?> OpenView<T>() where T : ViewBase
@@ -57,6 +73,8 @@ public partial class UIManager : Control
         }
 
         AddChild(view);
+        _openedViews!.TryAdd(type.FullName, view);
+        view.OnOpen();
         return view;
     }
 }

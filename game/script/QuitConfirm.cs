@@ -14,7 +14,7 @@ public partial class QuitConfirm : ViewBase
         confirmButton.Pressed += OnConfirmBtn;
         cancelButton.Pressed += OnCancelBtn;
     }
-    
+
     public override void _Ready()
     {
         base._Ready();
@@ -28,7 +28,7 @@ public partial class QuitConfirm : ViewBase
         confirmButton.Pressed -= OnConfirmBtn;
         cancelButton.Pressed -= OnCancelBtn;
     }
-    
+
     private void OnConfirmBtn()
     {
         GetTree().Quit();
@@ -36,7 +36,7 @@ public partial class QuitConfirm : ViewBase
 
     private void OnCancelBtn()
     {
-        QueueFree();
+        Close();
         _currentFocusOwner.GrabFocus();
     }
 
